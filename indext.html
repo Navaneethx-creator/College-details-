@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIES College - BBA Tech Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section h2::before {
+            content: "▸";
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .info-item strong {
+            color: #1e3c72;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .fee-highlight {
+            background: #28a745;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .placement-tag {
+            background: #dc3545;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .contact-box {
+            background: #1e3c72;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-box h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .contact-item::before {
+            content: "📌";
+            position: absolute;
+            left: 0;
+        }
+        
+        .timeline {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .timeline-date {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 15px;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .final-verdict {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .final-verdict h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .share-btn {
+            display: inline-block;
+            background: #ffd700;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .share-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏫 SIES College of Management Studies</h1>
+            <p>Nerul, Navi Mumbai | Est. 1995 | NAAC 'A' Grade</p>
+            <span class="badge">⭐ BEST CHOICE FOR BBA TECH</span>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Course Overview</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Course</strong>
+                        BBA with IT/Systems Specialization
+                    </div>
+                    <div class="info-item">
+                        <strong>Duration</strong>
+                        3 Years (6 Semesters)
+                    </div>
+                    <div class="info-item">
+                        <strong>Total Fees</strong>
+                        <span class="fee-highlight">₹2.6 - 3 Lakhs</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Admission</strong>
+                        Direct (12th Marks + Interview)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Why Perfect for You</h2>
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>Budget Friendly:</strong> Lowest fees in top Mumbai colleges</li>
+                        <li><strong>No Entrance Exam:</strong> Direct admission based on 12th marks</li>
+                        <li><strong>Weak Maths OK:</strong> Only basic business statistics, no advanced maths</li>
+                        <li><strong>CS Focus:</strong> Programming, DBMS, Web Technologies included</li>
+                        <li><strong>Mumbai Location:</strong> IT hub, internship opportunities</li>
+                        <li><strong>Good Placements:</strong> ₹3-4 LPA average starting salary</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Subjects by Year</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Year 1</strong>
+                        C Programming, Computer Apps, Business Communication, Financial Accounting, Principles of Management
+                    </div>
+                    <div class="info-item">
+                        <strong>Year 2</strong>
+                        Database Management (SQL), Web Technologies (HTML/CSS/JS), E-Commerce, Marketing, HR, Basic Statistics
+                    </div>
+                    <div class="info-item">
+                        <strong>Year 3</strong>
+                        ERP Systems, Software Project Management, Business Analytics, Strategic Management, Entrepreneurship, Major Project
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Placement Details</h2>
+                <div class="highlight-box">
+                    <p><span class="placement-tag">AVERAGE: ₹3-4 LPA</span> <span class="placement-tag">HIGHEST: ₹6-8 LPA</span></p>
+                    <br>
+                    <strong>Top Recruiters:</strong>
+                    <ul>
+                        <li>TCS, Infosys, Wipro</li>
+                        <li>HDFC Bank, ICICI Bank, Kotak Mahindra</li>
+                        <li>Deloitte, Amazon (Operations)</li>
+                        <li>Local IT Companies & Startups</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Admission Timeline 2026</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">May-Jun</span>
+                        <div class="timeline-content">Online application opens at siescoms.edu.in</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Jun-Jul</span>
+                        <div class="timeline-content">Submit 12th marks, documents, pay fee (₹500-1000)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">July</span>
+                        <div class="timeline-content">Personal Interview (basic career goals discussion)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Jul-Aug</span>
+                        <div class="timeline-content">Merit list, fee payment, confirm admission</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">August</span>
+                        <div class="timeline-content">Classes begin!</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Smart Strategy</h2>
+                <div class="highlight-box">
+                    <h3>Save ₹2 Lakhs + Invest in Certifications</h3>
+                    <ul>
+                        <li>AWS Cloud Practitioner (₹3,000)</li>
+                        <li>Google Data Analytics (₹2,000)</li>
+                        <li>Full Stack Web Dev Bootcamp (₹25,000)</li>
+                    </ul>
+                    <p><strong>Total Investment:</strong> ₹3.3 Lakhs for Job-Ready Profile!</p>
+                </div>
+            </div>
+            
+            <div class="contact-box">
+                <h3>📞 Contact Information</h3>
+                <div class="contact-item"><strong>Website:</strong> www.siescoms.edu.in</div>
+                <div class="contact-item"><strong>Phone:</strong> +91-22-2770-8274 / 2770-8275</div>
+                <div class="contact-item"><strong>Email:</strong> admissions@siescoms.edu.in</div>
+                <div class="contact-item"><strong>Address:</strong> Plot 1-E, Sector V, Nerul, Navi Mumbai - 400706</div>
+            </div>
+            
+            <div class="final-verdict">
+                <h2>🎯 Final Verdict</h2>
+                <p style="font-size: 1.2em; margin-bottom: 15px;">
+                    <strong>SIES College is your best choice for BBA Tech!</strong>
+                </p>
+                <p>
+                    Lowest Fees (₹2.6-3L) + BBA Tech Specialization + No Entrance + 
+                    Mumbai Location + Manageable Maths = Perfect Fit!
+                </p>
+                <br>
+                <p style="font-size: 0.9em; opacity: 0.9;">
+                    Start checking website in May 2026 for admission notification.<br>
+                    Best of luck with your Plus Two exams! 🚀
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
